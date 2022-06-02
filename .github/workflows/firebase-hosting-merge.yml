@@ -2,7 +2,7 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
-"on":
+'on':
   push:
     branches:
       - master
@@ -11,16 +11,16 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      APIKEY: "${{ secrets.APIKEY }}"
+      APIKEY: '${{ secrets.APIKEY }}'
     steps:
       - uses: actions/checkout@v2
       - run: cd numerology-calculator
       # - run: touch 'src/environments/environment.ts';
       # - run: touch 'src/environments/environment.prod.ts';
-      - run: npm ci && npm run build
+      - run: npm i && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_TEMP_TEST_3 }}"
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_TEMP_TEST_3 }}'
           channelId: live
           projectId: temp-test-3

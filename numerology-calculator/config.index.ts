@@ -5,10 +5,6 @@ const targetPath2 = './src/environments/environment.prod.ts';
 let x = process.env['APIKEY'];
 x = x ? x : '';
 
-// apiKey: 'AIzaSyALmeX2KhXT7M_dWUGe-foomArXRNEFwpk',
-// authDomain: 'temp-test-3.firebaseapp.com',
-// projectId: 'temp-test-3',
-
 const envConfigFile1 = `export const environment = {
    production: false,
    instance: 'Development',

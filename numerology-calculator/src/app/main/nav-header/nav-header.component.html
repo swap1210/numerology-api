@@ -1,0 +1,15 @@
+<mat-toolbar>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  ></button>
+  <span [innerText]="be.title"></span>
+  <span class="my-spacer"></span>
+  <a mat-icon-button routerLink="/calculator">
+    <mat-icon>calculate</mat-icon>
+  </a>
+  <a mat-icon-button routerLink="/suggest">
+    <mat-icon>settings_suggest</mat-icon>
+  </a>
+</mat-toolbar>

@@ -8,9 +8,9 @@ import { AppComponent } from './app.component';
 import { FirebaseOptions } from '@angular/fire/app';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatCardModule } from '@angular/material/card';
 import { BackendService } from './backend.service';
 import { SharedModule } from './shared/shared.module';
+import { MainModule } from './main/main.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +20,7 @@ import { SharedModule } from './shared/shared.module';
     AngularFireModule.initializeApp(environment.firebase as FirebaseOptions),
     BrowserAnimationsModule,
     SharedModule,
+    MainModule,
   ],
   providers: [BackendService],
   bootstrap: [AppComponent],

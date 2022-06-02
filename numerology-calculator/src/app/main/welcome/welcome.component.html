@@ -2,24 +2,29 @@
   <mat-card class="my-card">
     <mat-card-header>
       <div mat-card-avatar class="header-image"></div>
-      <mat-card-title [innerText]=""></mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      <mat-card-title [innerText]="beService.title"></mat-card-title>
+      <mat-card-subtitle>Calculator and suggester</mat-card-subtitle>
     </mat-card-header>
     <img
       mat-card-image
-      src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-      alt="Photo of a Shiba Inu"
+      src="https://askastrology.com/wp-content/uploads/2021/05/numerology-768x512.jpg"
+      alt="Photo of a Numerology logo"
     />
     <mat-card-content>
       <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz
-        breeds of dog from Japan. A small, agile dog that copes very well with
-        mountainous terrain, the Shiba Inu was originally bred for hunting.
+        Numerology is the pseudoscientific belief in a divine or mystical
+        relationship between a number and one or more coinciding events. It is
+        also the study of the numerical value of the letters in words, names,
+        and ideas. It is often associated with the paranormal, alongside
+        astrology and similar to divinatory arts. Calculate your numbers or Get
+        suggestions for your comapny name.
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
+      <button mat-button routeLink="/calculator" routerLinkActive="active">
+        Calculator
+      </button>
+      <button mat-button routeLink="/suggestions">Suggestions</button>
     </mat-card-actions>
   </mat-card>
 </div>

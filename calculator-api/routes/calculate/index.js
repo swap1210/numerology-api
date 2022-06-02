@@ -32,7 +32,7 @@ router.get('/', async (req, res, next) => {
 			dict_data.frequency[req.body.name.toLowerCase()]++;
 		}
 
-		dict_data.soul_number[calc.destiny_number][
+		dict_data.soul_number[calc.soul_number][
 			req.body.name.toLowerCase()
 		] = false;
 		dict_data.destiny_number[calc.destiny_number][

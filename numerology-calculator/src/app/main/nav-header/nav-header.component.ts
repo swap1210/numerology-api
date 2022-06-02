@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BackendService } from 'src/app/backend.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { BackendService } from 'src/app/services/backend.service';
 
 @Component({
   selector: 'app-nav-header',
@@ -7,7 +8,7 @@ import { BackendService } from 'src/app/backend.service';
   styleUrls: ['./nav-header.component.scss'],
 })
 export class NavHeaderComponent implements OnInit {
-  constructor(public be: BackendService) {}
+  constructor(public be: BackendService, public auth: AuthService) {}
 
   ngOnInit(): void {}
 }

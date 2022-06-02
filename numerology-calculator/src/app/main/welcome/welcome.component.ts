@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BackendService } from 'src/app/backend.service';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { BackendService } from 'src/app/services/backend.service';
 
 @Component({
   selector: 'app-welcome',
@@ -7,7 +9,7 @@ import { BackendService } from 'src/app/backend.service';
   styleUrls: ['./welcome.component.scss'],
 })
 export class WelcomeComponent implements OnInit {
-  constructor(public beService: BackendService) {}
+  constructor(public beService: BackendService, public auth: AuthService) {}
 
   ngOnInit(): void {}
 }

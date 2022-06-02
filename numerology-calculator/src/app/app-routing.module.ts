@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './main/main.component';
+import { CalculateComponent } from './main/main-body/calculate/calculate.component';
+import { SuggestComponent } from './main/main-body/suggest/suggest.component';
 import { WelcomeComponent } from './main/welcome/welcome.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {
@@ -10,7 +12,13 @@ const routes: Routes = [
   },
   {
     path: 'calculator',
-    component: MainComponent,
+    component: CalculateComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'suggest',
+    component: SuggestComponent,
+    canActivate: [AuthGuard],
   },
 ];
 

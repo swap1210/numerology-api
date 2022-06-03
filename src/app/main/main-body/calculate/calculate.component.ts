@@ -6,7 +6,6 @@ import {
   FormGroupDirective,
   Validators,
 } from '@angular/forms';
-import { CustomValidation } from 'src/app/services/AlphaValidator';
 import { BackendService } from 'src/app/services/backend.service';
 import { Util } from 'src/app/services/Util';
 

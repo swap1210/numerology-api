@@ -33,18 +33,19 @@
     <br />
     <div class="twoEle">
       <mat-list role="list">
-        <mat-list-item role="listitem" class="mat-typography"
-          ><span class="subheading-1">Destiny Number&nbsp;:&nbsp;&nbsp;</span
-          ><span class="body-1" [innerText]="nums.destiny_number"></span
+        <mat-list-item role="listitem"
+          ><span class="mat-body-strong">Destiny Number&nbsp;:&nbsp;&nbsp;</span
+          ><span class="mat-body" [innerText]="nums.destiny_number"></span
         ></mat-list-item>
-        <mat-list-item role="listitem" class="mat-typography"
-          ><span class="subheading-1">Soul Urge Number&nbsp;:&nbsp;&nbsp;</span
-          ><span class="body-1" [innerText]="nums.soul_number"></span
+        <mat-list-item role="listitem"
+          ><span class="mat-body-strong"
+            >Soul Urge Number&nbsp;:&nbsp;&nbsp;</span
+          ><span class="mat-body" [innerText]="nums.soul_number"></span
         ></mat-list-item>
-        <mat-list-item role="listitem" class="mat-typography"
-          ><span class="subheading-1"
+        <mat-list-item role="listitem"
+          ><span class="mat-body-strong"
             >Personality Number&nbsp;:&nbsp;&nbsp;</span
-          ><span class="body-1" [innerText]="nums.personaly_number"></span
+          ><span class="mat-body" [innerText]="nums.personaly_number"></span
         ></mat-list-item>
       </mat-list>
       <button mat-raised-button *ngIf="fg.valid" routerLink="/suggest">

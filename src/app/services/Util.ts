@@ -84,7 +84,8 @@ export class Util {
 
   static reduceNumber = (num: number): number => {
     // console.log('Calling reducenum for', num);
-    if (num < 10 || num === 11 || num === 22 || num === 33) {
+    if (num < 10) {
+      // || num === 11 || num === 22 || num === 33) {
       return num;
     } else {
       let digit = num;

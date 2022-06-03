@@ -12,6 +12,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 const moduleList = [
   CommonModule,
@@ -32,8 +34,8 @@ const moduleList = [
   // MatSlideToggleModule,
   MatListModule,
   MatTableModule,
-  // MatSortModule,
-  // MatPaginatorModule,
+  MatSortModule,
+  MatPaginatorModule,
   // MatSnackBarModule,
   // MatDialogModule,
   // MatButtonToggleModule,

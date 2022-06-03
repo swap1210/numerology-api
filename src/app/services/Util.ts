@@ -22,7 +22,7 @@ export class Util {
     t: 4,
     u: 6,
     v: 6,
-    w: 5,
+    w: 6,
     x: 5,
     y: 1,
     z: 7,

@@ -1,5 +1,17 @@
-<p>calculate works!</p>
-
-<a mat-icon-button routerLink="/suggest">
-  <mat-icon>calculate</mat-icon>
-</a>
+<mat-card>
+  <mat-card-title>Calculate your three Numbers</mat-card-title>
+  <mat-card-subtitle
+    >Personality, Soul Urge and Destiny Numbers</mat-card-subtitle
+  >
+  <form [formGroup]="fg">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your name</mat-label>
+      <input matInput placeholder="robin" required />
+      <mat-error *ngIf="fg.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+  </form>
+  <mat-card-actions>
+    <button mat-raised-button color="primary">Calculate</button>
+  </mat-card-actions>
+</mat-card>
+<br />

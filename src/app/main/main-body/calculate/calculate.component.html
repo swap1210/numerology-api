@@ -47,7 +47,9 @@
           ><span class="body-1" [innerText]="nums.personaly_number"></span
         ></mat-list-item>
       </mat-list>
-      <button mat-raised-button *ngIf="fg.valid">Get Suggestions</button>
+      <button mat-raised-button *ngIf="fg.valid" routerLink="/suggest">
+        Get Suggestions
+      </button>
     </div>
   </mat-card>
 </div>

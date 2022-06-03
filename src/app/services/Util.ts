@@ -1,5 +1,5 @@
 export class Util {
-  private static charToVal = {
+  public static charToVal = {
     a: 1,
     b: 2,
     c: 3,

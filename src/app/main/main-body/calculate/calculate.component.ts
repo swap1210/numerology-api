@@ -6,7 +6,9 @@ import {
   FormGroupDirective,
   Validators,
 } from '@angular/forms';
+import { CustomValidation } from 'src/app/services/AlphaValidator';
 import { BackendService } from 'src/app/services/backend.service';
+import { Util } from 'src/app/services/Util';
 
 @Component({
   selector: 'app-calculate',
@@ -15,6 +17,7 @@ import { BackendService } from 'src/app/services/backend.service';
 })
 export class CalculateComponent implements OnInit {
   formError = '';
+  public charToVal = Util.charToVal;
   public fg: FormGroup = new FormGroup({});
   public nums = { soul_number: 0, destiny_number: 0, personaly_number: 0 };
   private formbuilder: FormBuilder = new FormBuilder();
@@ -25,19 +28,29 @@ export class CalculateComponent implements OnInit {
 
   ngOnInit(): void {
     this.fg = this.formbuilder.group({
-      name: new FormControl('', Validators.required),
+      name: new FormControl('', [
+        Validators.required,
+        Validators.pattern("['A-Za-z ']+$"),
+      ]),
     });
 
     this.fg.valueChanges.subscribe((val) => {
-      // if (this.fg.valid) {
-      //   this.calculate();
-      // }
+      if (this.fg.valid) {
+        this.calculate(val.name);
+      } else {
+        this.calculate('');
+      }
     });
   }
 
-  calculate = () => {
-    this.nums = this.be.calculateNums(this.fg.getRawValue().name);
+  calculate = (p_name: string) => {
+    this.nums = this.be.calculateNums(p_name);
   };
+
+  charToValFunc(ch: string) {
+    return this.charToVal[ch.toLowerCase() as keyof typeof this.charToVal];
+  }
+
   getErrorMessage() {
     return "Name must be all characters and can't be empty";
   }

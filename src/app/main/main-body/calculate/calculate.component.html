@@ -5,27 +5,49 @@
       >Personality, Soul Urge and Destiny Numbers as per your
       name</mat-card-subtitle
     >
-    <form [formGroup]="fg" #fgGroupDirective="ngForm">
+    <form class="calc-form" [formGroup]="fg" #fgGroupDirective="ngForm">
       <mat-form-field appearance="fill">
         <mat-label>Enter your name</mat-label>
-        <input matInput placeholder="robin" formControlName="name" required />
+        <input
+          matInput
+          placeholder="e.g. Robin"
+          formControlName="name"
+          required
+        />
         <mat-error *ngIf="fg.invalid">{{ getErrorMessage() }}</mat-error>
       </mat-form-field>
     </form>
     <br />
-    <mat-list role="list">
-      <mat-list-item role="listitem" class="mat-typography"
-        ><span class="subheading-1">Destiny Number&nbsp;:&nbsp;&nbsp;</span
-        ><span class="body-1" [innerText]="nums.destiny_number"></span
-      ></mat-list-item>
-      <mat-list-item role="listitem" class="mat-typography"
-        ><span class="subheading-1">Soul Urge Number&nbsp;:&nbsp;&nbsp;</span
-        ><span class="body-1" [innerText]="nums.soul_number"></span
-      ></mat-list-item>
-      <mat-list-item role="listitem" class="mat-typography"
-        ><span class="subheading-1">Personality Number&nbsp;:&nbsp;&nbsp;</span
-        ><span class="body-1" [innerText]="nums.personaly_number"></span
-      ></mat-list-item>
-    </mat-list>
+    <table *ngIf="fg.valid">
+      <tr>
+        <td *ngFor="let x of this.fg.getRawValue().name.split('')">
+          {{ x }}
+        </td>
+      </tr>
+      <tr>
+        <td *ngFor="let x of this.fg.getRawValue().name.split('')">
+          {{ charToValFunc(x) }}
+        </td>
+      </tr>
+    </table>
+    <br />
+    <div class="twoEle">
+      <mat-list role="list">
+        <mat-list-item role="listitem" class="mat-typography"
+          ><span class="subheading-1">Destiny Number&nbsp;:&nbsp;&nbsp;</span
+          ><span class="body-1" [innerText]="nums.destiny_number"></span
+        ></mat-list-item>
+        <mat-list-item role="listitem" class="mat-typography"
+          ><span class="subheading-1">Soul Urge Number&nbsp;:&nbsp;&nbsp;</span
+          ><span class="body-1" [innerText]="nums.soul_number"></span
+        ></mat-list-item>
+        <mat-list-item role="listitem" class="mat-typography"
+          ><span class="subheading-1"
+            >Personality Number&nbsp;:&nbsp;&nbsp;</span
+          ><span class="body-1" [innerText]="nums.personaly_number"></span
+        ></mat-list-item>
+      </mat-list>
+      <button mat-raised-button *ngIf="fg.valid">Get Suggestions</button>
+    </div>
   </mat-card>
 </div>

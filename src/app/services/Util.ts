@@ -1,5 +1,5 @@
 export class Util {
-  private charToVal = {
+  private static charToVal = {
     a: 1,
     b: 2,
     c: 3,
@@ -30,7 +30,7 @@ export class Util {
 
   constructor(public dict: any) {}
 
-  calculateDestiny = (fullName: string) => {
+  static calculateDestiny = (fullName: string) => {
     const names = fullName.toLowerCase().split(' ');
 
     let result = names.reduce((total, name) => {
@@ -44,7 +44,7 @@ export class Util {
     return this.reduceNumber(result);
   };
 
-  calculateSoulUrge = (fullName: string) => {
+  static calculateSoulUrge = (fullName: string) => {
     const regexp = /[aeiou]/gi;
 
     if (!fullName.toLowerCase().match(regexp)) {
@@ -63,7 +63,7 @@ export class Util {
     }
   };
 
-  calculatePersonality = (fullName: string) => {
+  static calculatePersonality = (fullName: string) => {
     const regexp = /[^aeiou\s]/gi;
 
     if (!fullName.toLowerCase().match(regexp)) {
@@ -82,7 +82,7 @@ export class Util {
     }
   };
 
-  reduceNumber = (num: number): number => {
+  static reduceNumber = (num: number): number => {
     // console.log('Calling reducenum for', num);
     if (num < 10 || num === 11 || num === 22 || num === 33) {
       return num;

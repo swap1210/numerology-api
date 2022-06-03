@@ -8,6 +8,10 @@ import { AppRoutingModule } from '../app-routing.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
 
 const moduleList = [
   CommonModule,
@@ -20,6 +24,20 @@ const moduleList = [
   FormsModule,
   ReactiveFormsModule,
   BrowserAnimationsModule,
+  BrowserModule,
+  MatInputModule,
+  // MatMenuModule,
+  // MatDatepickerModule,
+  // MatMomentDateModule,
+  // MatSlideToggleModule,
+  MatListModule,
+  MatTableModule,
+  // MatSortModule,
+  // MatPaginatorModule,
+  // MatSnackBarModule,
+  // MatDialogModule,
+  // MatButtonToggleModule,
+  // MatBottomSheetModule,
 ];
 @NgModule({
   declarations: [],

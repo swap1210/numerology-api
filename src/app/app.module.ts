@@ -21,7 +21,7 @@ import { AuthService } from './services/auth.service';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase as FirebaseOptions),
-    BrowserAnimationsModule,
+
     SharedModule,
     MainModule,
   ],

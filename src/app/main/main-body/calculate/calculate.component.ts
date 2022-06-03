@@ -29,9 +29,9 @@ export class CalculateComponent implements OnInit {
     });
 
     this.fg.valueChanges.subscribe((val) => {
-      if (this.fg.valid) {
-        this.calculate();
-      }
+      // if (this.fg.valid) {
+      //   this.calculate();
+      // }
     });
   }
 

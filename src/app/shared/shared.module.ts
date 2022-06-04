@@ -14,6 +14,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { HttpClientModule } from '@angular/common/http';
 
 const moduleList = [
   CommonModule,
@@ -28,6 +29,7 @@ const moduleList = [
   BrowserAnimationsModule,
   BrowserModule,
   MatInputModule,
+  HttpClientModule,
   // MatMenuModule,
   // MatDatepickerModule,
   // MatMomentDateModule,

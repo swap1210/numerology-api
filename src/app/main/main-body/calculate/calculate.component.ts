@@ -18,7 +18,7 @@ export class CalculateComponent implements OnInit {
   formError = '';
   public charToVal = Util.charToVal;
   public fg: FormGroup = new FormGroup({});
-  public nums = { soul_number: 0, destiny_number: 0, personaly_number: 0 };
+  public nums = { s_n: 0, d_n: 0, p_n: 0 };
   private formbuilder: FormBuilder = new FormBuilder();
   constructor(private be: BackendService) {}
 

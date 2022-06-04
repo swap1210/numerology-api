@@ -10,9 +10,9 @@ export class BackendService {
 
   calculateNums = (name: string) => {
     return {
-      soul_number: Util.calculateSoulUrge(name),
-      destiny_number: Util.calculateDestiny(name),
-      personaly_number: Util.calculatePersonality(name),
+      s_n: Util.calculateSoulUrge(name),
+      d_n: Util.calculateDestiny(name),
+      p_n: Util.calculatePersonality(name),
     };
   };
 }

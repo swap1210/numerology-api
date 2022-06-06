@@ -62,7 +62,7 @@ export class SuggestComponent implements OnInit, AfterViewInit {
     this.spFormGroup = this.formbuilder.group({
       c_n: new FormControl('', [
         Validators.required,
-        Validators.pattern("['0-9']"),
+        Validators.pattern("['0-9']+$"),
       ]),
       s_n: new FormControl('', [
         Validators.required,

@@ -38,7 +38,7 @@ export class Util {
       for (let i = 0; i < name.length; i++) {
         sum += this.charToVal[name.charAt(i) as keyof typeof this.charToVal];
       }
-      return this.reduceNumber(sum) + total;
+      return sum + total;
     }, 0);
     return result;
   };

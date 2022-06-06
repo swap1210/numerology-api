@@ -9,6 +9,10 @@
     <fieldset>
       <legend>Your Target Numbers</legend>
       <mat-form-field appearance="fill">
+        <mat-label>Compund Number</mat-label>
+        <input matInput type="text" formControlName="c_n" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label>Destiny Number</mat-label>
         <input matInput type="text" formControlName="d_n" />
       </mat-form-field>
@@ -78,6 +82,14 @@
   <div class="result" [style]="{ display: searched ? 'block' : 'none' }">
     <!-- {{ fetchedData | json }} -->
     <h2>Suggested Names</h2>
+    <fieldset class="numbers-cls">
+      <legend>Your Target Numbers</legend>
+      <div>Compound Number: {{ this.spFormGroup.getRawValue().c_n }}</div>
+      <div>SoulUrge Number: {{ this.spFormGroup.getRawValue().s_n }}</div>
+      <div>Personality Number: {{ this.spFormGroup.getRawValue().p_n }}</div>
+      <div>Destiny Number: {{ this.spFormGroup.getRawValue().d_n }}</div>
+    </fieldset>
+    <br />
     <div class="result-form">
       <mat-form-field appearance="fill">
         <mat-label>Filter</mat-label>

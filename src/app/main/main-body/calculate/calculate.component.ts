@@ -17,7 +17,7 @@ import { Util } from 'src/app/services/Util';
 export class CalculateComponent implements OnInit {
   formError = '';
   public fg: FormGroup = new FormGroup({});
-  public nums = { s_n: 0, d_n: 0, p_n: 0 };
+  public nums = { s_n: 0, d_n: 0, p_n: 0, c_n: 0 };
   private formbuilder: FormBuilder = new FormBuilder();
   constructor(private be: BackendService) {}
 

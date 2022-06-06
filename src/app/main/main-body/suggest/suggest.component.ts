@@ -26,7 +26,7 @@ import { Util } from 'src/app/services/Util';
   styleUrls: ['./suggest.component.scss'],
 })
 export class SuggestComponent implements OnInit, AfterViewInit {
-  curr_nums = {};
+  curr_nums = { s_n: 0, d_n: 0, p_n: 0, c_n: 0 };
   private formbuilder: FormBuilder = new FormBuilder();
   searched = false;
   spFormGroup: FormGroup = new FormGroup({});
@@ -60,6 +60,10 @@ export class SuggestComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.spFormGroup = this.formbuilder.group({
+      c_n: new FormControl('', [
+        Validators.required,
+        Validators.pattern("['0-9']"),
+      ]),
       s_n: new FormControl('', [
         Validators.required,
         Validators.pattern("['0-9']"),
@@ -73,11 +77,11 @@ export class SuggestComponent implements OnInit, AfterViewInit {
         Validators.pattern("['0-9']"),
       ]),
       prefix: new FormControl('', [
-        Validators.required,
+        // Validators.required,
         Validators.pattern("['A-Za-z ']+$"),
       ]),
       suffix: new FormControl('', [
-        Validators.required,
+        // Validators.required,
         Validators.pattern("['A-Za-z ']+$"),
       ]),
       // tolerance: new FormControl('', [Validators.required]),

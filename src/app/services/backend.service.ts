@@ -120,6 +120,7 @@ export class BackendService {
       s_n: Util.calculateSoulUrge(name),
       d_n: Util.calculateDestiny(name),
       p_n: Util.calculatePersonality(name),
+      c_n: Util.calculateCompound(name),
     };
   };
 

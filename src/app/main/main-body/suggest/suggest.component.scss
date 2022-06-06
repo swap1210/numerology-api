@@ -24,7 +24,7 @@ fieldset {
 .result {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
 }
 
 .result-form {
@@ -35,5 +35,8 @@ table {
   width: 100%;
 }
 .no-data-cell {
+  text-align: center;
+}
+td {
   text-align: center;
 }

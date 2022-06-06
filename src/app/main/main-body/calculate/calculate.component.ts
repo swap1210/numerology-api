@@ -16,7 +16,6 @@ import { Util } from 'src/app/services/Util';
 })
 export class CalculateComponent implements OnInit {
   formError = '';
-  public charToVal = Util.charToVal;
   public fg: FormGroup = new FormGroup({});
   public nums = { s_n: 0, d_n: 0, p_n: 0 };
   private formbuilder: FormBuilder = new FormBuilder();
@@ -47,7 +46,7 @@ export class CalculateComponent implements OnInit {
   };
 
   charToValFunc(ch: string) {
-    return this.charToVal[ch.toLowerCase() as keyof typeof this.charToVal];
+    return Util.charToVal[ch.toLowerCase() as keyof typeof Util.charToVal];
   }
 
   getErrorMessage() {

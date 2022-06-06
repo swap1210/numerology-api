@@ -21,6 +21,15 @@
 
   <div>
     <h3>File Content</h3>
-    <pre> {{ fileContent }} </pre>
+    <pre> {{ be.local_data | json }} </pre>
   </div>
+
+  <button
+    mat-mini-fab
+    color="primary"
+    class="upload-btn"
+    (click)="be.upload_to_cloud()"
+  >
+    <mat-icon>cloud</mat-icon>
+  </button>
 </div>

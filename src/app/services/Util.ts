@@ -28,7 +28,20 @@ export class Util {
     z: 7,
   };
 
-  constructor(public dict: any) {}
+  constructor() {}
+
+  static calculateCompound = (fullName: string) => {
+    const names = fullName.toLowerCase().split(' ');
+
+    let result = names.reduce((total, name) => {
+      let sum = 0;
+      for (let i = 0; i < name.length; i++) {
+        sum += this.charToVal[name.charAt(i) as keyof typeof this.charToVal];
+      }
+      return this.reduceNumber(sum) + total;
+    }, 0);
+    return result;
+  };
 
   static calculateDestiny = (fullName: string) => {
     const names = fullName.toLowerCase().split(' ');
@@ -40,7 +53,6 @@ export class Util {
       }
       return this.reduceNumber(sum) + total;
     }, 0);
-
     return this.reduceNumber(result);
   };
 

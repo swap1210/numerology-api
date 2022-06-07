@@ -106,13 +106,15 @@ export class Util {
   };
 
   static lucky = (dob: Date) => {
+    if (!dob) return 0;
     return this.reduceNumber(
       dob.getDate() + dob.getMonth() + dob.getFullYear()
     );
   };
   static ruling = (dob: Date) => {
+    if (!dob) return 0;
     let day = dob.getDate();
-    console.log(dob.getDate(), dob);
+    // console.log(dob.getDate(), dob);
     return this.reduceNumber(day);
   };
 

@@ -39,13 +39,12 @@ export class CalculateComponent implements OnInit {
         Validators.required,
         Validators.pattern("['A-Za-z ']+$"),
       ]),
+      pob: new FormControl('', [Validators.pattern("['A-Za-z ']+$")]),
       dob: new FormControl('', []),
     });
 
     this.fg.valueChanges.subscribe((val) => {
       if (this.fg.valid) {
-        // let k = val.dob instanceof;
-        console.log(val.dob);
         this.calculate(val.name, val.dob);
       } else {
         this.calculate('', new Date());

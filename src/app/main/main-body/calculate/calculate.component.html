@@ -17,6 +17,11 @@
         <mat-error *ngIf="fg.invalid">{{ getErrorMessage() }}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
+        <mat-label>Enter your place of birth</mat-label>
+        <input matInput placeholder="e.g. Newyork" formControlName="pob" />
+        <mat-error *ngIf="fg.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="dob" />
         <mat-hint>MM/DD/YYYY</mat-hint>

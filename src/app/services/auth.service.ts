@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of, switchMap } from 'rxjs';
 import { User } from '../model/User';
@@ -7,7 +7,6 @@ import { GoogleAuthProvider } from '@angular/fire/auth';
 import {
   AngularFirestore,
   AngularFirestoreDocument,
-  DocumentReference,
 } from '@angular/fire/compat/firestore';
 import { Timestamp } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -20,7 +19,6 @@ export class AuthService {
   user$: Observable<any> | undefined;
   commonData$: BehaviorSubject<any> = new BehaviorSubject({});
   curUser: User | undefined;
-  // public curUserRef: DocumentReference<User> | undefined;
   constructor(
     private afAuth: AngularFireAuth, // Inject Firebase auth service
     private afs: AngularFirestore, // Inject Firestore service

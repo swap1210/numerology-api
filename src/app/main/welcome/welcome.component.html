@@ -2,7 +2,7 @@
   <mat-card class="my-card">
     <mat-card-header>
       <div mat-card-avatar class="header-image"></div>
-      <mat-card-title [innerText]="beService.title"></mat-card-title>
+      <mat-card-title [innerText]="be.title"></mat-card-title>
       <mat-card-subtitle>Calculator and suggester</mat-card-subtitle>
     </mat-card-header>
     <img
@@ -21,7 +21,7 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="auth.signIn()">
+      <button mat-raised-button color="primary" (click)="auth.mySign()">
         Begin
       </button>
       <!-- <button mat-button (click)="auth.signOut()">Out</button> -->

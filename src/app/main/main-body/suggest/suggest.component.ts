@@ -17,7 +17,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { BackendService } from 'src/app/services/backend.service';
-import { Numerology } from 'src/app/services/Numerology';
+import { Numerology } from 'src/app/model/Numerology';
 import { Util } from 'src/app/services/Util';
 
 @Component({
@@ -26,7 +26,15 @@ import { Util } from 'src/app/services/Util';
   styleUrls: ['./suggest.component.scss'],
 })
 export class SuggestComponent implements OnInit, AfterViewInit {
-  curr_nums = { s_n: 0, d_n: 0, p_n: 0, c_n: 0 };
+  curr_nums: Numerology = {
+    s_n: 0,
+    d_n: 0,
+    p_n: 0,
+    c_n: 0,
+    name: '',
+    r_n: 0,
+    l_n: 0,
+  };
   private formbuilder: FormBuilder = new FormBuilder();
   searched = false;
   spFormGroup: FormGroup = new FormGroup({});

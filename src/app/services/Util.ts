@@ -1,3 +1,5 @@
+import { Numerology } from '../model/Numerology';
+
 export class Util {
   public static charToVal = {
     a: 1,
@@ -27,10 +29,19 @@ export class Util {
     y: 1,
     z: 7,
   };
-
+  public static fullForm: Numerology = {
+    name: 'name',
+    l_n: 'Lucky Number',
+    r_n: 'Ruling Number',
+    c_n: 'Compound Number',
+    s_n: 'Soul Urge Number',
+    p_n: 'Personality Number',
+    d_n: 'Destiny Number',
+    d_nm: 'Domain Name',
+  };
   constructor() {}
 
-  static calculateCompound = (fullName: string) => {
+  static Compound = (fullName: string) => {
     const names = fullName.toLowerCase().split(' ');
 
     let result = names.reduce((total, name) => {
@@ -43,7 +54,7 @@ export class Util {
     return result;
   };
 
-  static calculateDestiny = (fullName: string) => {
+  static Destiny = (fullName: string) => {
     const names = fullName.toLowerCase().split(' ');
 
     let result = names.reduce((total, name) => {
@@ -56,7 +67,7 @@ export class Util {
     return this.reduceNumber(result);
   };
 
-  static calculateSoulUrge = (fullName: string) => {
+  static SoulUrge = (fullName: string) => {
     const regexp = /[aeiou]/gi;
 
     if (!fullName.toLowerCase().match(regexp)) {
@@ -75,7 +86,7 @@ export class Util {
     }
   };
 
-  static calculatePersonality = (fullName: string) => {
+  static Personality = (fullName: string) => {
     const regexp = /[^aeiou\s]/gi;
 
     if (!fullName.toLowerCase().match(regexp)) {
@@ -92,6 +103,17 @@ export class Util {
       result = result ? result : 0;
       return this.reduceNumber(result);
     }
+  };
+
+  static lucky = (dob: Date) => {
+    return this.reduceNumber(
+      dob.getDate() + dob.getMonth() + dob.getFullYear()
+    );
+  };
+  static ruling = (dob: Date) => {
+    let day = dob.getDate();
+    console.log(dob.getDate(), dob);
+    return this.reduceNumber(day);
   };
 
   static reduceNumber = (num: number): number => {

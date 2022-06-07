@@ -6,11 +6,33 @@
 }
 .twoEle {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 1em;
+  column-gap: 1em;
+  justify-content: center;
 }
 td {
   font-size: large;
 }
 table {
   margin: auto;
+}
+
+.num-card {
+  flex-grow: 1;
+}
+
+.num-label {
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+}
+.num-val {
+  display: flex;
+  justify-content: center;
+}
+form {
+  display: flex;
+  justify-content: space-evenly;
 }

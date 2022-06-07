@@ -5,6 +5,7 @@ import { LoaderComponent } from './main/main-body/loader/loader.component';
 import { SuggestComponent } from './main/main-body/suggest/suggest.component';
 import { WelcomeComponent } from './main/welcome/welcome.component';
 import { AuthGuard } from './services/auth.guard';
+import { AuthGuard2 } from './services/auth.guard2';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
   {
     path: 'loader',
     component: LoaderComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard2],
   },
 ];
 

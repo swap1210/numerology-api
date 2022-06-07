@@ -2,7 +2,7 @@
   <mat-card>
     <mat-card-title>Calculate your three Numbers</mat-card-title>
     <mat-card-subtitle
-      >Personality, Soul Urge and Destiny Numbers as per your
+      >Lucky, Ruling, Personality, Soul Urge and Destiny Numbers as per your
       name</mat-card-subtitle
     >
     <form class="calc-form" [formGroup]="fg" #fgGroupDirective="ngForm">
@@ -16,8 +16,14 @@
         />
         <mat-error *ngIf="fg.invalid">{{ getErrorMessage() }}</mat-error>
       </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dob" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
     </form>
-    <br />
     <table *ngIf="fg.valid">
       <tr>
         <td *ngFor="let x of this.fg.getRawValue().name.split('')">
@@ -32,7 +38,7 @@
     </table>
     <br />
     <div class="twoEle">
-      <mat-list role="list">
+      <!-- <mat-list role="list">
         <mat-list-item role="listitem"
           ><span class="mat-body-strong"
             >Compound Number&nbsp;:&nbsp;&nbsp;</span
@@ -52,7 +58,14 @@
             >Personality Number&nbsp;:&nbsp;&nbsp;</span
           ><span class="mat-body" [innerText]="nums.p_n"></span
         ></mat-list-item>
-      </mat-list>
+      </mat-list> -->
+      <mat-card
+        *ngFor="let num of this.getNums()"
+        class="num-card mat-elevation-z4"
+      >
+        <div class="num-label" [innerText]="num.num_label"></div>
+        <div class="num-val" [innerText]="num.num"></div>
+      </mat-card>
       <button
         mat-raised-button
         color="primary"

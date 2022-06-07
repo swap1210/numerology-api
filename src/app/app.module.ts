@@ -12,13 +12,11 @@ import { MainModule } from './main/main.module';
 import { NavHeaderComponent } from './main/nav-header/nav-header.component';
 import { NavFooterComponent } from './main/nav-footer/nav-footer.component';
 import { AuthService } from './services/auth.service';
-
 @NgModule({
   declarations: [AppComponent, NavHeaderComponent, NavFooterComponent],
   imports: [
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase as FirebaseOptions),
-
     SharedModule,
     MainModule,
   ],

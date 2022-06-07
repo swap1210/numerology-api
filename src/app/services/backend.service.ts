@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Util } from './Util';
-import { Numerology } from 'src/app/services/Numerology';
+import { Numerology } from 'src/app/model/Numerology';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
@@ -52,15 +52,21 @@ export class BackendService {
             v.slice(1) +
             ' ' +
             target.suffix;
-
-          temp.push({
-            name: word,
-            c_n: Util.calculateCompound(word),
-            s_n: target.s_n,
-            p_n: Util.calculatePersonality(word),
-            d_n: Util.calculateDestiny(word),
-            d_nm: 'coming soon',
-          });
+          if (
+            target.p_n == Util.Personality(word) &&
+            target.d_n == Util.Destiny(word)
+          ) {
+            temp.push({
+              name: word,
+              c_n: Util.Compound(word),
+              s_n: target.s_n,
+              p_n: target.p_n,
+              d_n: target.d_n,
+              d_nm: 'coming soon',
+              r_n: 0,
+              l_n: 0,
+            });
+          }
         });
         self.$dict_data.next(temp);
       });
@@ -70,15 +76,21 @@ export class BackendService {
         let temp: Numerology[] = [];
         Object.keys(p_n_v.data()).forEach((v) => {
           let word = target.prefix + ' ' + v + ' ' + target.suffix;
-          // console.log(word);
-          temp.push({
-            name: word,
-            c_n: 0,
-            s_n: Util.calculateSoulUrge(word),
-            p_n: target.p_n,
-            d_n: Util.calculateDestiny(word),
-            d_nm: 'coming soon',
-          });
+          if (
+            target.s_n == Util.SoulUrge(word) &&
+            target.d_n == Util.Destiny(word)
+          ) {
+            temp.push({
+              name: word,
+              c_n: Util.Compound(word),
+              s_n: target.s_n,
+              p_n: target.p_n,
+              d_n: target.d_n,
+              d_nm: 'coming soon',
+              r_n: 0,
+              l_n: 0,
+            });
+          }
         });
         self.$dict_data.next(temp);
       });
@@ -88,15 +100,21 @@ export class BackendService {
         let temp: Numerology[] = [];
         Object.keys(d_n_v.data()).forEach((v) => {
           let word = target.prefix + ' ' + v + ' ' + target.suffix;
-          // console.log(word);
-          temp.push({
-            name: word,
-            c_n: 0,
-            s_n: Util.calculateSoulUrge(word),
-            p_n: Util.calculatePersonality(word),
-            d_n: target.d_n,
-            d_nm: 'coming soon',
-          });
+          if (
+            target.s_n == Util.SoulUrge(word) &&
+            target.p_n == Util.Personality(word)
+          ) {
+            temp.push({
+              name: word,
+              c_n: Util.Compound(word),
+              s_n: target.s_n,
+              p_n: target.p_n,
+              d_n: target.d_n,
+              d_nm: 'coming soon',
+              r_n: 0,
+              l_n: 0,
+            });
+          }
         });
         self.$dict_data.next(temp);
       });
@@ -115,12 +133,26 @@ export class BackendService {
     return 10 + (num - 1);
   };
 
-  calculateNums = (name: string) => {
+  calculateNums = (name1: string): Numerology => {
     return {
-      s_n: Util.calculateSoulUrge(name),
-      d_n: Util.calculateDestiny(name),
-      p_n: Util.calculatePersonality(name),
-      c_n: Util.calculateCompound(name),
+      s_n: Util.SoulUrge(name1),
+      d_n: Util.Destiny(name1),
+      p_n: Util.Personality(name1),
+      c_n: Util.Compound(name1),
+      name: name1,
+      r_n: 0,
+      l_n: 0,
+    };
+  };
+  calculateNums2 = (name1: string, dob: Date): Numerology => {
+    return {
+      s_n: Util.SoulUrge(name1),
+      d_n: Util.Destiny(name1),
+      p_n: Util.Personality(name1),
+      c_n: Util.Compound(name1),
+      name: name1,
+      r_n: Util.ruling(dob),
+      l_n: Util.lucky(dob),
     };
   };
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of, switchMap } from 'rxjs';
-import { User } from '../model/User';
+import { User } from '../model/user.model';
 import { environment } from 'src/environments/environment';
 import { GoogleAuthProvider } from '@angular/fire/auth';
 import {

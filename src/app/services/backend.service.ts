@@ -14,11 +14,17 @@ export class BackendService {
   // title = 'Numerology Calculator';
   set_name = '';
   $comm = new Observable<any>();
+  $notif = new Observable<any>();
   $dict_data = new BehaviorSubject<Numerology[]>([]);
   constructor(private firestore: AngularFirestore) {
     this.$comm = this.firestore
       .collection<any>('comm')
       .doc('c1')
+      .valueChanges();
+
+    this.$notif = this.firestore
+      .collection<any>('comm')
+      .doc('notification')
       .valueChanges();
 
     this.$comm.subscribe((v) => {

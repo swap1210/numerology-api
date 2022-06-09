@@ -37,18 +37,21 @@ export class WelcomeComponent implements OnInit {
         this.labels = v.welcome;
         this.loaded = true;
       }
+    });
 
+    this.be.$notif.subscribe((v) => {
       if (
-        v.hasOwnProperty('notification') &&
-        v.notification.hasOwnProperty('title') &&
-        v.notification.hasOwnProperty('enable') &&
-        v.notification.enable
+        v.hasOwnProperty('title') &&
+        v.hasOwnProperty('desc') &&
+        v.hasOwnProperty('enable') &&
+        v.enable
       ) {
         this.dialog.open(NotificationDialog, {
           data: {
-            title: v.notification.title,
-            desc: v.notification.desc,
+            title: v.title,
+            desc: v.desc,
           },
+          maxWidth: '35em',
         });
       }
     });
@@ -58,6 +61,7 @@ export class WelcomeComponent implements OnInit {
 @Component({
   selector: 'notification-dialog',
   templateUrl: 'notification-dialog.component.html',
+  styleUrls: ['./welcome.component.scss'],
 })
 export class NotificationDialog {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}

@@ -17,6 +17,7 @@ export class WelcomeComponent implements OnInit {
     bg: '',
     icon: '',
   };
+  public loaded: boolean = false;
   public hush: boolean = false;
   constructor(
     public be: BackendService,
@@ -32,7 +33,10 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.be.$comm.subscribe((v) => {
-      if (v.hasOwnProperty('welcome')) this.labels = v.welcome;
+      if (v.hasOwnProperty('welcome')) {
+        this.labels = v.welcome;
+        this.loaded = true;
+      }
 
       if (
         v.hasOwnProperty('notification') &&

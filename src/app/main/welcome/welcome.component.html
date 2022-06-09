@@ -1,5 +1,6 @@
 <div class="welcome">
-  <mat-card class="my-card">
+  <spin-loader *ngIf="!loaded"></spin-loader>
+  <mat-card class="my-card" *ngIf="loaded">
     <mat-card-header>
       <div
         mat-card-avatar

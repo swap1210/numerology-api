@@ -79,6 +79,10 @@ export class CalculateComponent implements OnInit {
       });
     return n;
   };
+
+  intAct = () => {
+    this.be.logged(this.fg.getRawValue());
+  };
 }
 interface Nums {
   num_label: number | string | undefined;

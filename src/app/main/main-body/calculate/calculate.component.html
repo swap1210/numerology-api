@@ -1,5 +1,5 @@
 <div class="calculator">
-  <mat-card>
+  <mat-card class="mat-elevation-z4">
     <mat-card-title>Calculate your three Numbers</mat-card-title>
     <mat-card-subtitle
       >Lucky, Ruling, Personality, Soul Urge and Destiny Numbers as per your
@@ -66,7 +66,7 @@
       </mat-list> -->
       <mat-card
         *ngFor="let num of this.getNums()"
-        class="num-card mat-elevation-z4"
+        class="num-card mat-elevation-z2"
       >
         <div class="num-label" [innerText]="num.num_label"></div>
         <div class="num-val" [innerText]="num.num"></div>
@@ -77,6 +77,7 @@
         *ngIf="fg.valid"
         routerLink="/suggest"
         [queryParams]="nums"
+        (click)="intAct()"
       >
         Get Suggestions
       </button>

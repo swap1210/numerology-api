@@ -3,16 +3,27 @@ import { Util } from './Util';
 import { Numerology } from 'src/app/model/Numerology';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Timestamp } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BackendService {
   local_data: any = {};
-  title = 'Numerology Calculator';
+  // title = 'Numerology Calculator';
+  set_name = '';
+  $comm = new Observable<any>();
   $dict_data = new BehaviorSubject<Numerology[]>([]);
   constructor(private firestore: AngularFirestore) {
-    this.firestore.collection('dictionary');
+    this.$comm = this.firestore
+      .collection<any>('comm')
+      .doc('c1')
+      .valueChanges();
+
+    this.$comm.subscribe((v) => {
+      this.set_name = v.c_d_set;
+    });
   }
 
   fetch = async (target: any, cur: any) => {
@@ -122,14 +133,6 @@ export class BackendService {
   };
 
   calc_help = (num: number): number => {
-    // let calc_help = {
-    //   1: 10,
-    //   2: 11,
-    //   3: 12,
-    //   4: 13,
-    // };
-
-    // return Util.reduceNumber(10 + (num - 1));
     return 10 + (num - 1);
   };
 
@@ -177,7 +180,7 @@ export class BackendService {
     });
   };
 
-  upload_to_cloud() {
+  upload_to_cloud = () => {
     let self = this;
     let temp_load = new BehaviorSubject<any>({});
     let total = Object.keys(this.local_data).length;
@@ -196,5 +199,16 @@ export class BackendService {
           console.log(e);
         });
     });
+  };
+
+  logged(dat: any) {
+    let a = Timestamp.now();
+    dat = {
+      ...dat,
+      on: a,
+    };
+    let t: any = {};
+    t[(a.seconds + '') as keyof typeof t] = dat;
+    this.firestore.collection('c_d').doc(this.set_name).update(t);
   }
 }

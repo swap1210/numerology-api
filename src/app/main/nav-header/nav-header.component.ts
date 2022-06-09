@@ -8,7 +8,17 @@ import { BackendService } from 'src/app/services/backend.service';
   styleUrls: ['./nav-header.component.scss'],
 })
 export class NavHeaderComponent implements OnInit {
+  sp = false;
+  app_name = '';
   constructor(public be: BackendService, public auth: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.auth.user$?.subscribe((v) => {
+      this.sp = v && v.hasOwnProperty('workgroup') && v.workgroup == 'kk';
+    });
+
+    this.be.$comm.subscribe((v) => {
+      this.app_name = v.app_name;
+    });
+  }
 }

@@ -1,30 +1,29 @@
 <div class="welcome">
   <mat-card class="my-card">
     <mat-card-header>
-      <div mat-card-avatar class="header-image"></div>
-      <mat-card-title [innerText]="be.title"></mat-card-title>
-      <mat-card-subtitle>Calculator and suggester</mat-card-subtitle>
+      <div
+        mat-card-avatar
+        class="header-image"
+        [ngStyle]="{ 'background-image': labels.icon }"
+      ></div>
+      <mat-card-title [innerText]="labels.title"></mat-card-title>
+      <mat-card-subtitle [innerText]="labels.hint"></mat-card-subtitle>
     </mat-card-header>
     <img
       mat-card-image
-      src="https://askastrology.com/wp-content/uploads/2021/05/numerology-768x512.jpg"
+      src="{{ labels.bg }}"
       alt="Photo of a Numerology logo"
     />
     <mat-card-content>
-      <p>
-        Numerology is the pseudoscientific belief in a divine or mystical
-        relationship between a number and one or more coinciding events. It is
-        also the study of the numerical value of the letters in words, names,
-        and ideas. It is often associated with the paranormal, alongside
-        astrology and similar to divinatory arts. Calculate your numbers or Get
-        suggestions for your comapny name.
-      </p>
+      <p [innerText]="labels.desc"></p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="auth.mySign()">
-        Begin
-      </button>
-      <!-- <button mat-button (click)="auth.signOut()">Out</button> -->
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="hush ? auth.googleSignin() : auth.mySign()"
+        [innerText]="hush ? 'Login' : 'Begin'"
+      ></button>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -1,10 +1,16 @@
 <mat-toolbar>
-  <span class="app-name" (click)="auth.signOut()" [innerText]="be.title"></span>
+  <span class="app-name" routerLink="/" [innerText]="app_name"></span>
   <span class="my-spacer"></span>
   <a mat-icon-button routerLink="/calculator" *ngIf="auth.user$ | async">
     <mat-icon>calculate</mat-icon>
   </a>
   <a mat-icon-button routerLink="/suggest" *ngIf="auth.user$ | async">
     <mat-icon>settings_suggest</mat-icon>
+  </a>
+  <a mat-icon-button routerLink="/loader" *ngIf="sp">
+    <mat-icon>upload</mat-icon>
+  </a>
+  <a mat-icon-button routerLink="/suggest" *ngIf="sp" (click)="auth.signOut()">
+    <mat-icon>power_settings_new</mat-icon>
   </a>
 </mat-toolbar>

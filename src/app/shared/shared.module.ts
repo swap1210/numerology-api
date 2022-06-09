@@ -17,6 +17,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 const moduleList = [
   CommonModule,
@@ -33,6 +34,7 @@ const moduleList = [
   MatInputModule,
   HttpClientModule,
   MatNativeDateModule,
+  MatProgressBarModule,
   // MatMenuModule,
   MatDatepickerModule,
   // MatMomentDateModule,

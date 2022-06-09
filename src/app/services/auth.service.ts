@@ -26,11 +26,13 @@ export class AuthService {
   ) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user) => {
+        console.log(user);
         if (user) {
           if (!user.isAnonymous) {
             //if it's end ur for w ur
             return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
           } else {
+            //w ur
             return new Promise<User>((res, rej) => {
               let ur: User = {
                 workgroup: 'anon',
@@ -43,7 +45,6 @@ export class AuthService {
             });
           }
         } else {
-          console.log('here');
           return of(null);
         }
       })
